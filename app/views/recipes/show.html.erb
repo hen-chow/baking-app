@@ -1,0 +1,10 @@
+<h2><%= @recipe.name %></h2>
+
+<ul>
+  <li>Difficulty: <%= @recipe.skill_level %></li>
+  <li>Time: <%= @recipe.cooking_time %></li>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient.qty %> <%= ingredient.food_item.name %></li>
+    <% end %>
+  <li>Method: <%= @recipe.method %></li>
+</ul>

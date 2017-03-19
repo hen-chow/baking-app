@@ -1,0 +1,6 @@
+<h2><%= @baking_category.name %></h2>
+<ul>
+  <% @baking_category.recipes.each do |recipe| %>
+    <li><%= link_to recipe.name, recipe_path(recipe.id) %></li>
+  <% end %>
+</ul>

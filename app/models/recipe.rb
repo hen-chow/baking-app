@@ -4,4 +4,5 @@ class Recipe < ApplicationRecord
   has_many :ingredients
   has_many :food_items, through: :ingredients
   has_many :reviews
+  validates_uniqueness_of :name, scope: :baking_category_id
 end

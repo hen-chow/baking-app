@@ -1,0 +1,6 @@
+<h1>Check out these awesome baking categories!</h1>
+<ul>
+  <% @baking_categories.each do |b| %>
+    <li><%= link_to b.name, baking_category_path(b.id) %></li>
+  <% end %>
+</ul>
