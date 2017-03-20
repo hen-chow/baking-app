@@ -6,20 +6,20 @@
       <% end %>
     </select>
   <p>
-    <%= el.label "Name" %>
+    <%= el.label :name %>
     <%= el.text_field :name %>
   </p>
   <p>
-    <%= el.label "Skill Level" %>
+    <%= el.label :skill_level %>
     <%= el.text_field :skill_level %>
   </p>
   <p>
-    <%= el.label "Cooking Time" %>
-    <%= el.text_field :cooking_time %>
+    <%= el.label :prep_time %>
+    <%= el.text_field :prep_time %>
   </p>
   <p>
-    <%= el.label "Method" %>
-    <%= el.text_field :method %>
+    <%= el.label :cooking_time %>
+    <%= el.text_field :cooking_time %>
   </p>
   <%= el.submit %>
 <% end %>
