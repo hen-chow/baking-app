@@ -1,0 +1,21 @@
+<h3>Join our community of awesome bakers and create your profile today!</h3>
+
+<%= form_for @user do |el| %>
+<p>
+  <%= el.label :first_name %>
+  <%= el.text_field :first_name %>
+</p>
+<p>
+  <%= el.label :last_name %>
+  <%= el.text_field :last_name %>
+</p>
+<p>
+  <%= el.label :email %>
+  <%= el.text_field :email %>
+</p>
+<p>
+  <%= el.label :password %>
+  <%= el.password_field :password %>
+</p>
+  <%= el.submit "Sign Up" %>
+<% end %>

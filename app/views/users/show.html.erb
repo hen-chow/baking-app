@@ -1,0 +1,30 @@
+<h3>Welcome to <%= @user.first_name %> <%= @user.last_name %>'s page</h3>
+
+<h4>Recipes added by you</h4>
+<ul>
+  <% @user.recipes.each do |recipe| %>
+    <li><%= link_to recipe.name, recipe_path(recipe.id) %></li>
+  <% end %>
+</ul>
+
+<% if @user.reviews.length != 0 %>
+  <h4>Reviews added by you</h4>
+  <ul>
+    <% @user.reviews.each do |review| %>
+      <li><%= link_to review.review, recipe_path(review.recipe_id) %></li>
+      <li>Rating: <%= review.rating %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h4>Comments to your recipes</h4>
+<% @user.recipes.each do |recipe| %>
+  <% if recipe.reviews.length != 0 %>
+    <h5><%= link_to recipe.name, recipe_path(recipe.id) %></h5>
+      <% recipe.reviews.each do |review| %>
+        <p><%= review.review %></p>
+        <p>Rating: <%= review.rating %></p>
+        <p>By: <%= review.user.first_name %> <%= review.user.last_name %></p>
+      <% end %>
+    <% end %>
+  <% end %>

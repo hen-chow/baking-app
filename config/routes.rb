@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :food_items, only: [:show, :new, :destroy, :create]
   resources :reviews, only: [:create, :new, :edit, :show, :update, :destroy]
 
-  resources :users, only: [:create]
+  resources :users, only: [:new, :create, :show]
 end
