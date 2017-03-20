@@ -8,3 +8,32 @@
     <% end %>
   <li>Method: <%= @recipe.method %></li>
 </ul>
+
+<h3>Comments and Ratings</h3>
+<% if @recipe.reviews.length == 0 %>
+  <p>No comments yet - be the first to rate this recipe!</p>
+<% else %>
+  <% @recipe.reviews.each do |review| %>
+    <p><%= review.message %></p>
+    <p>Rating: <%= review.rating %></p>
+    <p>By: <%= review.user.first_name %> <%= review.user.last_name %></p>
+  <% end %>
+<% end %>
+
+<% if @current_user %>
+  <h4>What's Your Rating?</h4>
+  <%= form_tag reviews_path, method: :post do %>
+    <input type ="hidden" name="review[recipe_id]" value="<%= params[:id] %>" />
+    <input type="hidden" name="review[user_id]" value="<%= @current_user.id %>" />
+    <p>
+      <input type="text" name="review[rating]" placeholder="Rating out of 5" />
+    </p>
+    <p>
+      <label>Your Review</label>
+      <input type="text" name="review[message]" placeholder="Write your review" />
+    </p>
+    <p>
+      <input type="submit" value="Post">
+    </p>
+  <% end %>
+<% end %>

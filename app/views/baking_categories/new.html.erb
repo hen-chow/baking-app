@@ -1,0 +1,8 @@
+<h2>Add a New Baking Category</h2>
+<%= form_for @baking_category do |b| %>
+  <p>
+    <%= b.label "Name" %>
+    <%= b.text_field :name %>
+  </p>
+  <%= b.submit "Submit" %>
+<% end %>

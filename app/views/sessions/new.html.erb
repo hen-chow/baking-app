@@ -1,0 +1,14 @@
+<h3>This is the log in page</h3>
+<%= form_tag login_path, method: :post do %>
+  <p>
+    <label>Email</label>
+    <input type="text" name="email" />
+  </p>
+  <p>
+    <label>Password</label>
+    <input type="password" name="password" />
+  </p>
+  <p>
+    <input type="submit" value="Log In" />
+  </p>
+<% end %>

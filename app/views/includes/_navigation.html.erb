@@ -1,0 +1,9 @@
+<div class="container">
+  <%= link_to "Home", root_path %>
+  <%= link_to "Log in", login_path %>
+  <%= link_to "Log out", logout_path, method: :delete %>
+  <% if @current_user %>
+    Welcome back, <%= @current_user.first_name %> <%= @current_user.last_name %>!
+    <%= link_to "Your profile page", user_path(@current_user.id) %>
+  <% end %>
+</div>

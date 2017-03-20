@@ -1,0 +1,25 @@
+<%= form_for @recipe do |el| %>
+  <%= el.label "Baking Category" %>
+    <select name="baking_category_id">
+      <% @baking_categories.each do |b| %>
+        <option value="<%= b.id %>"><%= b.name %></option>
+      <% end %>
+    </select>
+  <p>
+    <%= el.label "Name" %>
+    <%= el.text_field :name %>
+  </p>
+  <p>
+    <%= el.label "Skill Level" %>
+    <%= el.text_field :skill_level %>
+  </p>
+  <p>
+    <%= el.label "Cooking Time" %>
+    <%= el.text_field :cooking_time %>
+  </p>
+  <p>
+    <%= el.label "Method" %>
+    <%= el.text_field :method %>
+  </p>
+  <%= el.submit %>
+<% end %>

@@ -12,8 +12,20 @@ users = [
     first_name: "Admin",
     last_name: "Admin",
     email: "hen@recipes.com",
-    password_digest: "password",
+    password: "password",
     admin: "true"
+  },
+  {
+    first_name: "Jane",
+    last_name: "Doe",
+    email: "jane@recipes.com",
+    password: "password",
+  },
+  {
+    first_name: "Hen",
+    last_name: "Test",
+    email: "admin@test.com",
+    password: "password"
   }
 ]
 
@@ -53,6 +65,18 @@ baking_categories = [
         skill_level: 2,
         cooking_time: 45,
         user_id: 1
+      },
+      {
+        name: "Brownies and Bars"
+      },
+      {
+        name: "Cupcakes"
+      },
+      {
+        name: "Pies and Tarts"
+      },
+      {
+        name: "Muffins"
       }
     ]
   }
