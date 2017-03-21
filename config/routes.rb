@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :baking_categories, only: [:show, :create, :new, :edit, :update, :destroy]
   resources :recipes, only: [:create, :new, :show]
   resources :directions, only: [:new, :create]
-  resources :ingredients, only: [:new, :create]
+  resources :ingredients, only: [:new]
+  post "/ingredients/new", to: "ingredients#create"
   resources :reviews, only: [:create, :new, :edit, :show, :update, :destroy]
 
   resources :users, only: [:new, :create, :show]

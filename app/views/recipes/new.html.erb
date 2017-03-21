@@ -1,25 +1,27 @@
 <%= form_for @recipe do |el| %>
-  <%= el.label "Baking Category" %>
-    <select name="recipe[baking_category_id]">
-      <% @baking_categories.each do |b| %>
-        <option value="<%= b.id %>"><%= b.name %></option>
-      <% end %>
-    </select>
-  <p>
-    <%= el.label :name %>
-    <%= el.text_field :name %>
-  </p>
-  <p>
-    <%= el.label :skill_level %>
-    <%= el.number_field :skill_level %>
-  </p>
-  <p>
-    <%= el.label :prep_time %>
-    <%= el.number_field :prep_time %>
-  </p>
-  <p>
-    <%= el.label :cooking_time %>
-    <%= el.number_field :cooking_time %>
-  </p>
-  <%= el.submit "Next"%>
+  <input type="hidden" name="recipe[user_id]" value="<%= @current_user.id %>" />
+
+    <%= el.label "Baking Category" %>
+      <select name="recipe[baking_category_id]">
+        <% @baking_categories.each do |b| %>
+          <option value="<%= b.id %>"><%= b.name %></option>
+        <% end %>
+      </select>
+    <p>
+      <%= el.label :name %>
+      <%= el.text_field :name %>
+    </p>
+    <p>
+      <%= el.label :skill_level %>
+      <%= el.number_field :skill_level %>
+    </p>
+    <p>
+      <%= el.label :prep_time %>
+      <%= el.number_field :prep_time %>
+    </p>
+    <p>
+      <%= el.label :cooking_time %>
+      <%= el.number_field :cooking_time %>
+    </p>
+    <%= el.submit "Next"%>
 <% end %>

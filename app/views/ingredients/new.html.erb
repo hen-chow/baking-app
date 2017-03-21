@@ -1,13 +1,14 @@
-<%= form_for @ingredient do |i| %>
-  <input type="hidden" name="ingredient[recipe_id]" value="<%= params[:id] %>" />
+<%= form_tag new_ingredient_path, method: "post" do %>
+  <input type="hidden" name="recipe_id" value="<%= params[:recipe_id] %>" />
   <p>
-    <%= i.label :qty %>
-    <%= i.text_field :qty %>
+    <label>Qty</label>
+    <input type="text" name="qty"/>
   </p>
   <p>
-    <%= i.label :name %>
-    <%= i.text_field :name %>
+    <label>Item</label>
+    <input type="text" name="name"/>
   </p>
   <p>
-  <%= i.submit "Next" %>
+    <input type="submit" value="Next" />
+</p>
 <% end %>

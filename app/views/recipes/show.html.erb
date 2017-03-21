@@ -6,7 +6,6 @@
     <% @recipe.ingredients.each do |ingredient| %>
       <li><%= ingredient.qty %> <%= ingredient.food_item.name %></li>
     <% end %>
-  <li>Method: <%= @recipe.method %></li>
 </ul>
 
 <h3>Comments and Ratings</h3>

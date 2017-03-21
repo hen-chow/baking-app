@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
     @baking_categories = BakingCategory.all
     @recipe = Recipe.create(clean_params)
     if @recipe.save
-      redirect_to new_food_item_path(@recipe.id)
+      redirect_to new_ingredient_path(recipe_id: @recipe.id)
     else
       render :new
     end
@@ -35,6 +35,6 @@ class RecipesController < ApplicationController
   private
 
   def clean_params
-    params.require(:recipe).permit(:name, :image, :skill_level, :prep_time, :cooking_time, :baking_category_id)
+    params.require(:recipe).permit(:name, :image, :skill_level, :prep_time, :cooking_time, :baking_category_id, :user_id)
   end
 end
