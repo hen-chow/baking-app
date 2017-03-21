@@ -7,6 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Testing that this works!"
 
+User.destroy_all
+FoodItem.destroy_all
+BakingCategory.destroy_all
+Recipe.destroy_all
+
 users = [
   {
     first_name: "Admin",
