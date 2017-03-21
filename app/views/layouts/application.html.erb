@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project1</title>
+    <title>Baking App</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -10,7 +10,10 @@
 
   <body>
     <%= render "includes/navigation" %>
+    <div class="ui main text container">
+      <%= render "includes/flash_notices" %>
       <%= yield %>
+    </div>
     <%= render "includes/footer" %>
   </body>
 </html>
