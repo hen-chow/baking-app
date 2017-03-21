@@ -1,5 +1,5 @@
 class DirectionsController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user, only: [:create]
 
   def new
     @direction = Direction.new

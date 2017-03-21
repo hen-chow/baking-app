@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user, only: [:create]
 
   def new
     @review = Review.new
@@ -9,13 +10,15 @@ class ReviewsController < ApplicationController
     redirect_to recipe_path(@review.recipe_id)
   end
 
-  def update
-  end
-
-  def edit
-  end
-
   def destroy
+    if @current_user.admin
+      review = Review.find(params[:id]).destroy
+      flash[:success] = "You deleted this review"
+      redirect_to root_path
+    else
+      flash[:error] = "You don't have permission to delete this review"
+      redirect_to root_path
+    end
   end
 
   private
