@@ -110,7 +110,8 @@ food_items = [
 
 users.each do |user|
   new_user = User.create(first_name:
-  user[:first_name], last_name: user[:last_name], email: user[:email], password_digest: user[:password_digest], admin: user[:admin])
+  user[:first_name], last_name: user[:last_name], email: user[:email], password: user[:password], admin: user[:admin])
+  puts new_user.errors.messages
 end
 
 food_items.each do |food_item|
