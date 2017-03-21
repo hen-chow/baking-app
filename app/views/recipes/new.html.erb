@@ -1,6 +1,6 @@
 <%= form_for @recipe do |el| %>
   <%= el.label "Baking Category" %>
-    <select name="baking_category_id">
+    <select name="recipe[baking_category_id]">
       <% @baking_categories.each do |b| %>
         <option value="<%= b.id %>"><%= b.name %></option>
       <% end %>
@@ -11,15 +11,15 @@
   </p>
   <p>
     <%= el.label :skill_level %>
-    <%= el.text_field :skill_level %>
+    <%= el.number_field :skill_level %>
   </p>
   <p>
     <%= el.label :prep_time %>
-    <%= el.text_field :prep_time %>
+    <%= el.number_field :prep_time %>
   </p>
   <p>
     <%= el.label :cooking_time %>
-    <%= el.text_field :cooking_time %>
+    <%= el.number_field :cooking_time %>
   </p>
-  <%= el.submit %>
+  <%= el.submit "Next"%>
 <% end %>

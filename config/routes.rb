@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root "baking_categories#index"
 
   resources :baking_categories, only: [:show, :create, :new, :edit, :update, :destroy]
-  resources :recipes, only: [:create, :new, :edit, :show, :update, :destroy]
-  resources :ingredients, only: [:show, :new, :destroy, :create]
-  resources :food_items, only: [:show, :new, :destroy, :create]
+  resources :recipes, only: [:create, :new, :show]
+  resources :directions, only: [:new, :create]
+  resources :ingredients, only: [:new, :create]
   resources :reviews, only: [:create, :new, :edit, :show, :update, :destroy]
 
   resources :users, only: [:new, :create, :show]

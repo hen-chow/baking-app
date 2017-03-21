@@ -1,0 +1,13 @@
+<%= form_for @ingredient do |i| %>
+  <input type="hidden" name="ingredient[recipe_id]" value="<%= params[:id] %>" />
+  <p>
+    <%= i.label :qty %>
+    <%= i.text_field :qty %>
+  </p>
+  <p>
+    <%= i.label :name %>
+    <%= i.text_field :name %>
+  </p>
+  <p>
+  <%= i.submit "Next" %>
+<% end %>
