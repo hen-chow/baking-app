@@ -1,1 +1,14 @@
-<h1>Testing</h1>
+<%= form_tag new_direction_path, method: "post" do %>
+  <input type="hidden" name="direction[recipe_id]" value="<%= params[:recipe_id] %>" />
+  <p>
+    <label>Step</label>
+    <input type="text" name="direction[step]"/>
+  </p>
+  <p>
+    <label>Instruction</label>
+    <input type="text" name="direction[instruction]"/>
+  </p>
+  <p>
+    <input type="submit" value="Submit" />
+</p>
+<% end %>

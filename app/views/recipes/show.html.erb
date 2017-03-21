@@ -2,11 +2,21 @@
 
 <ul>
   <li>Difficulty: <%= @recipe.skill_level %></li>
-  <li>Time: <%= @recipe.cooking_time %></li>
-    <% @recipe.ingredients.each do |ingredient| %>
-      <li><%= ingredient.qty %> <%= ingredient.food_item.name %></li>
-    <% end %>
+  <li>Prep Time: <%= @recipe.prep_time %></li>
+  <li>Cooking Time: <%= @recipe.cooking_time %></li>
 </ul>
+<h3>Ingredients</h3>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.qty %> <%= ingredient.food_item.name %></li>
+  <% end %>
+</ul>
+<h3>Directions</h3>
+<ol>
+  <% @recipe.directions.each do |direction| %>
+    <li><%= direction.instruction %></li>
+  <% end %>
+</ol>
 
 <h3>Comments and Ratings</h3>
 <% if @recipe.reviews.length == 0 %>
