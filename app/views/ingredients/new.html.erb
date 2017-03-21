@@ -1,12 +1,12 @@
 <%= form_tag new_ingredient_path, method: "post" do %>
-  <input type="hidden" name="recipe_id" value="<%= params[:recipe_id] %>" />
+  <input type="hidden" name="ingredient[recipe_id]" value="<%= params[:recipe_id] %>" />
   <p>
     <label>Qty</label>
-    <input type="text" name="qty"/>
+    <input type="text" name="ingredient[qty]"/>
   </p>
   <p>
     <label>Item</label>
-    <input type="text" name="name"/>
+    <input type="text" name="food_item[name]"/>
   </p>
   <p>
     <input type="submit" value="Next" />

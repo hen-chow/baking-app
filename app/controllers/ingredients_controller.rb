@@ -5,10 +5,10 @@ class IngredientsController < ApplicationController
   end
 
   def create
-    food_item = FoodItem.find_or_create_by(name: params[:name])
-    @recipe = Recipe.find(params[:recipe_id])
-    Ingredient.create(recipe_id: params[:recipe_id], food_item_id: food_item.id, qty: params[:qty])
-    redirect_to root_path
+    food_item = FoodItem.find_or_create_by(name: params[:food_item][:name])
+    @recipe = Recipe.find(params[:ingredient][:recipe_id])
+    Ingredient.create(qty: params[:ingredient][:qty], food_item_id: food_item.id, recipe_id: @recipe.id)
+    redirect_to new_direction_path(recipe_id: @recipe.id)
   end
 
   private
