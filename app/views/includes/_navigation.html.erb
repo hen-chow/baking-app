@@ -1,9 +1,22 @@
-<div class="container">
-  <%= link_to "Home", root_path %>
-  <%= link_to "Log in", login_path %>
-  <%= link_to "Log out", logout_path, method: :delete %>
-  <% if @current_user %>
-    Welcome back, <%= @current_user.first_name %> <%= @current_user.last_name %>!
-    <%= link_to "Your profile page", user_path(@current_user.id) %>
-  <% end %>
+<div class="ui inverted segment">
+  <div class="ui inverted secondary pointing menu">
+    <%= link_to "Home", root_path, class: "active item" %>
+    <%= link_to "Baking Categories", root_path, class: "item" %>
+    <div class="right menu">
+      <% if @current_user %>
+        <div class="ui item">
+          Welcome back, <%= @current_user.name %>!
+        </div>
+        <%= link_to "Your profile page", user_path(@current_user.id), class: "ui item" %>
+      <% end %>
+      <div class="item">
+        <div class="ui icon input">
+          <input type="text" placeholder="Search...">
+          <i class="search link icon"></i>
+        </div>
+      </div>
+      <%= link_to "Log in", login_path, class: "ui item" %>
+      <%= link_to "Log out", logout_path, method: :delete, class: "ui item" %>
+    </div>
+  </div>
 </div>

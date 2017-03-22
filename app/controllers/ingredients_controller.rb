@@ -8,12 +8,8 @@ class IngredientsController < ApplicationController
   def create
     params[:ingredients].each do |i|
       if !i[:qty].empty? && !i[:name].empty?
-        puts "********************************"
-        puts "QTY: \t#{i[:qty]}"
-        puts "FOOD NAME: \t#{i[:name]}"
-        puts "RECIPE ID: \t#{params[:ingredient][:recipe_id]}"
         food_item = FoodItem.find_or_create_by(name: i[:name])
-        @recipe = Recipe.find(params[:ingredient][:recipe_id])
+        @recipe = Recipe.find(params[:recipe_id])
         @ingredients = Ingredient.create(qty: i[:qty], food_item_id: food_item.id, recipe_id: @recipe.id)
       end
     end
@@ -27,6 +23,6 @@ class IngredientsController < ApplicationController
   private
 
   def clean_params
-    params.require(:ingredient).permit(:qty, :food_item_id, :recipe_id)
+    params.require(:ingredients).permit(:qty, :food_item_id, :recipe_id)
   end
 end

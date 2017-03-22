@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+h1, h2, h3, h4 {
+  font-family: 'Gentium Book Basic', serif;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fffafa;
+}
+
+.ui.inverted.segment {
+  border-radius: 0;
+}
+
+.main.container {
+  margin-top: 7em;
+}
+
+.ui.footer.segment {
+  margin: 4em 0em 0em;
+  padding: 4em 0em;
+}

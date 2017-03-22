@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post "/directions/new", to: "directions#create"
   resources :ingredients, only: [:new]
   post "/ingredients/new", to: "ingredients#create"
-  resources :reviews, only: [:create, :new, :edit, :show, :update, :destroy]
+  resources :reviews, only: [:create, :new, :destroy]
 
   resources :users, only: [:new, :create, :show]
   get "login", to: "sessions#new", as: "login"

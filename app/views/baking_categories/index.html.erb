@@ -10,11 +10,11 @@
   <% end %>
 </ul>
 <% if @current_user && @current_user.admin %>
-  <%= link_to "Add a New Baking Category", new_baking_category_path %>
+  <%= link_to "Add a New Baking Category", new_baking_category_path, class: "ui teal basic button" %>
 <% end %>
 <% if @current_user %>
-  <%= link_to "Add a New Recipe", new_recipe_path %>
+  <%= link_to "Add a New Recipe", new_recipe_path, class: "ui teal basic button" %>
 <% end %>
 <% if !@current_user %>
-  <%= link_to "Sign Up Now", new_user_path %>
+  <%= link_to "Sign Up Now", new_user_path, class: "ui teal basic button" %>
 <% end %>

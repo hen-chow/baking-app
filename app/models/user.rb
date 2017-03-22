@@ -6,4 +6,6 @@ class User < ApplicationRecord
   validates :email, format: {
     with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   }
+  # geocoded_by :address   # can also be an IP address
+  # after_validation :geocode          # auto-fetch coordinates
 end

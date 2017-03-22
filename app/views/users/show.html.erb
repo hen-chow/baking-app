@@ -1,4 +1,4 @@
-<h3>Welcome to <%= @user.first_name %> <%= @user.last_name %>'s page</h3>
+<h3>Welcome to <%= @user.name %>'s page</h3>
 <p><%= link_to "Add a Recipe", new_recipe_path %></p>
 
 <h4>Recipes added by you</h4>
@@ -19,13 +19,13 @@
 <% end %>
 
 <% @user.recipes.each do |recipe| %>
-  <% if recipe.reviews.length != 0 %>
+  <% if !recipe.reviews.empty? %>
     <h4>Comments to your recipes</h4>
     <p><%= link_to recipe.name, recipe_path(recipe.id) %></p>
       <% recipe.reviews.each do |review| %>
         <p><%= review.message %></p>
         <p>Rating: <%= review.rating %></p>
-        <p>By: <%= review.user.first_name %> <%= review.user.last_name %></p>
+        <p>By: <%= review.user.name %></p>
       <% end %>
     <% end %>
   <% end %>

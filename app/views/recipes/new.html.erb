@@ -1,15 +1,20 @@
-<%= form_for @recipe do |el| %>
+<%= form_for(@recipe, :html => {:multipart => true}) do |el| %>
   <input type="hidden" name="recipe[user_id]" value="<%= @current_user.id %>" />
-
-    <%= el.label "Baking Category" %>
-      <select name="recipe[baking_category_id]">
-        <% @baking_categories.each do |b| %>
-          <option value="<%= b.id %>"><%= b.name %></option>
-        <% end %>
-      </select>
+    <p>
+      <%= el.label "Baking Category" %>
+        <select name="recipe[baking_category_id]", class="ui selection dropdown">
+          <% @baking_categories.each do |b| %>
+            <option value="<%= b.id %>"><%= b.name %></option>
+          <% end %>
+        </select>
+    </p>
     <p>
       <%= el.label :name %>
       <%= el.text_field :name %>
+    </p>
+    <p>
+      <%= el.label :image %>
+      <%= el.cl_image_upload :image %>
     </p>
     <p>
       <%= el.label :skill_level %>
@@ -23,5 +28,5 @@
       <%= el.label :cooking_time %>
       <%= el.text_field :cooking_time %>
     </p>
-    <%= el.submit "Next"%>
+    <%= el.submit "Next", class: "ui teal basic button"%>
 <% end %>

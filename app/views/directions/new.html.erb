@@ -1,14 +1,22 @@
 <%= form_tag new_direction_path, method: "post" do %>
-  <input type="hidden" name="direction[recipe_id]" value="<%= params[:recipe_id] %>" />
+  <input type="hidden" name="recipe_id" value="<%= params[:recipe_id] %>" />
+  <div id="direction_inputs">
+    <%= render "/includes/direction_inputs" %>
+  </div>
   <p>
-    <label>Step</label>
-    <input type="text" name="direction[step]"/>
+    <input type="submit" value="Submit" class="ui teal basic button"/>
   </p>
-  <p>
-    <label>Instruction</label>
-    <input type="text" name="direction[instruction]"/>
-  </p>
-  <p>
-    <input type="submit" value="Submit" />
-</p>
 <% end %>
+<a href="#" id="add_direction">Add More</a>
+<div id="hidden_inputs" style="display: none">
+  <%= render "/includes/direction_inputs" %>
+</div>
+<script>
+  $(document).ready(function(){
+    $("#add_direction").on("click", function(e){
+      e.preventDefault();
+      var inputs = $("#hidden_inputs").html();
+      $("#direction_inputs").append(inputs);
+    })
+  });
+</script>

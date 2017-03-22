@@ -16,21 +16,18 @@ Recipe.destroy_all
 
 users = [
   {
-    first_name: "Admin",
-    last_name: "Admin",
+    name: "Admin",
     email: "hen@recipes.com",
     password: "password",
     admin: "true"
   },
   {
-    first_name: "Jane",
-    last_name: "Doe",
+    name: "Jane Doe",
     email: "jane@recipes.com",
     password: "password",
   },
   {
-    first_name: "Hen",
-    last_name: "Test",
+    name: "Hen",
     email: "admin@test.com",
     password: "password"
   }
@@ -39,8 +36,8 @@ users = [
 created_users = []
 
 users.each do |user|
-  created_users << User.create(first_name:
-  user[:first_name], last_name: user[:last_name], email: user[:email], password: user[:password], admin: user[:admin])
+  created_users << User.create(name:
+  user[:name], email: user[:email], password: user[:password], admin: user[:admin])
   # puts new_user.errors.messages
 end
 

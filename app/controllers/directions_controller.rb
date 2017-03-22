@@ -6,9 +6,15 @@ class DirectionsController < ApplicationController
   end
 
   def create
-    direction = Direction.create(clean_params)
-    if direction.save
-      redirect_to recipe_path(id: params[:direction][:recipe_id])
+    params[:directions].each do |d|
+      if !d[:step].empty? && !d[:instruction].empty?
+        puts "*******************"
+        puts "Step #{d[:step]} \t#{d[:instruction]}"
+        @directions = Direction.create(step: d[:step], instruction: d[:instruction], recipe_id: params[:recipe_id])
+      end
+    end
+    if @directions.save
+      redirect_to recipe_path(id: params[:recipe_id])
     else
       render :new
     end
@@ -17,6 +23,6 @@ class DirectionsController < ApplicationController
   private
 
   def clean_params
-    params.require(:direction).permit(:step, :recipe_id, :instruction)
+    params.require(:directions).permit(:step, :recipe_id, :instruction)
   end
 end

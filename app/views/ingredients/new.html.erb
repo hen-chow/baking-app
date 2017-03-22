@@ -1,10 +1,10 @@
 <%= form_tag new_ingredient_path, method: "post" do %>
-  <input type="hidden" name="ingredient[recipe_id]" value="<%= params[:recipe_id] %>" />
+  <input type="hidden" name="recipe_id" value="<%= params[:recipe_id] %>" />
   <div id="ingredient_inputs">
     <%= render "/includes/ingredient_inputs" %>
   </div>
   <p>
-    <input type="submit" value="Next" />
+    <input type="submit" value="Next" class="ui teal basic button"/>
 </p>
 <% end %>
 <a href="#" id="add_ingredient">More +</a>

@@ -11,7 +11,13 @@ class RecipesController < ApplicationController
 
   def create
     @baking_categories = BakingCategory.all
-    @recipe = Recipe.create(clean_params)
+    @recipe = Recipe.new(clean_params)
+
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      @recipe.image = req["public_id"]
+    end
+
     if @recipe.save
       redirect_to new_ingredient_path(recipe_id: @recipe.id)
     else

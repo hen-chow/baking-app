@@ -2,12 +2,8 @@
 
 <%= form_for @user do |el| %>
 <p>
-  <%= el.label :first_name %>
-  <%= el.text_field :first_name %>
-</p>
-<p>
-  <%= el.label :last_name %>
-  <%= el.text_field :last_name %>
+  <%= el.label :name %>
+  <%= el.text_field :name %>
 </p>
 <p>
   <%= el.label :email %>
@@ -17,5 +13,5 @@
   <%= el.label :password %>
   <%= el.password_field :password %>
 </p>
-  <%= el.submit "Sign Up" %>
+  <%= el.submit "Sign Up" class: "ui teal basic button" %>
 <% end %>
