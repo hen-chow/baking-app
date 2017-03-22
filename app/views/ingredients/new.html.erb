@@ -1,14 +1,22 @@
 <%= form_tag new_ingredient_path, method: "post" do %>
   <input type="hidden" name="ingredient[recipe_id]" value="<%= params[:recipe_id] %>" />
-  <p>
-    <label>Qty</label>
-    <input type="text" name="ingredient[qty]"/>
-  </p>
-  <p>
-    <label>Item</label>
-    <input type="text" name="food_item[name]"/>
-  </p>
+  <div id="ingredient_inputs">
+    <%= render "/includes/ingredient_inputs" %>
+  </div>
   <p>
     <input type="submit" value="Next" />
 </p>
 <% end %>
+<a href="#" id="add_ingredient">More +</a>
+<div id="hidden_inputs" style="display: none;">
+  <%= render "/includes/ingredient_inputs" %>
+</div>
+<script>
+  $(document).ready(function(){
+    $("#add_ingredient").on("click", function(e){
+      e.preventDefault();
+      var inputs = $("#hidden_inputs").html();
+      $("#ingredient_inputs").append(inputs);
+    })
+  });
+</script>
