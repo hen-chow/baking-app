@@ -1,6 +1,6 @@
 <div class="ui main text container">
   <h2>Edit this baking category</h2>
-  <%= form_for @baking_category do |b| %>
+  <%= form_for @baking_category, html: {class: "ui large form"} do |b| %>
     <p>
       <%= b.label :name %>
       <%= b.text_field :name %>
@@ -8,4 +8,3 @@
       <%= b.submit "Save", class: "ui teal basic button" %>
   <% end %>
 </div>
-  

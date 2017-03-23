@@ -111,6 +111,15 @@ body {
   color: black;
 }
 
+#review-container {
+  background-color: gray;
+  margin: auto;
+  width: 100%;
+  height: auto;
+  color: black;
+  text-align: center;
+}
+
 #search-field {
   width: 400px;
   margin-right: 5px;

@@ -1,5 +1,6 @@
 <div class="ui main text container">
-  <%= form_for(@recipe, :html => {:multipart => true}) do |el| %>
+  <h2>Add a Recipe</h2>
+  <%= form_for(@recipe, :html => {:multipart => true}), html: {class: "ui large form"} do |el| %>
     <input type="hidden" name="recipe[user_id]" value="<%= @current_user.id %>" />
       <p>
         <%= el.label "Baking Category" %>

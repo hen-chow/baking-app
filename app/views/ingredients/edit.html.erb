@@ -1,5 +1,6 @@
 <div class="ui main text container">
-  <%= form_for @ingredients do |i| %>
+  <h2>Edit the ingredients</h2>
+  <%= form_for @ingredients, html: {class: "ui large form"} do |i| %>
     <p>
       <%= i.label :qty %>
       <%= i.text_field :qty %>

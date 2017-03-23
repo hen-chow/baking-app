@@ -1,5 +1,10 @@
+<div class="spotlight-container">
+  <%= image_tag "black-forest-cake.jpg", class: "spotlight-image" %>
+  <div class="spotlight-text">
+    <h2><%= @baking_category.name %></h2>
+  </div>
+</div>
 <div class="ui main text container">
-  <h2><%= @baking_category.name %></h2>
   <ul>
     <% @baking_category.recipes.order(:name).each do |recipe| %>
       <li><%= link_to recipe.name, recipe_path(recipe.id) %></li>

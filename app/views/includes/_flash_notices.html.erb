@@ -1,6 +1,6 @@
 <% if flash %>
   <% flash.each do |k,v| %>
-    <div class="ui floating message <%= k.to_s %>">
+    <div class="ui transition message <%= k.to_s %>">
       <i class="close icon"></i>
       <div class="header">
         <%= k.to_s.capitalize %>

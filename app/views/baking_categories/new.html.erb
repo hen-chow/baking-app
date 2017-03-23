@@ -1,6 +1,6 @@
 <div class="ui main text container">
   <h2>Add a New Baking Category</h2>
-  <%= form_for @baking_category do |b| %>
+  <%= form_for @baking_category, html: {class: "ui large form"} do |b| %>
     <p>
       <%= b.label :name %>
       <%= b.text_field :name %>

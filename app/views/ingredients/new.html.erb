@@ -1,5 +1,6 @@
 <div class="ui main text container">
-  <%= form_tag new_ingredient_path, method: "post" do %>
+  <h2>What goes in it? Add the ingredients</h2>
+  <%= form_tag new_ingredient_path, method: "post", class: "ui large form" do %>
     <input type="hidden" name="recipe_id" value="<%= params[:recipe_id] %>" />
     <div id="ingredient_inputs">
       <%= render "/includes/ingredient_inputs" %>

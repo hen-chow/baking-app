@@ -1,6 +1,6 @@
 <div class="ui main text container">
   <h2>Edit this recipe</h2>
-  <%= form_for(@recipe, :html => {:multipart => true}) do |el| %>
+  <%= form_for(@recipe, :html => {:multipart => true, :class => "ui large form"}) do |el| %>
     <input type="hidden" name="recipe[user_id]" value="<%= @current_user.id %>" />
       <p>
         <%= el.label "Baking Category" %>

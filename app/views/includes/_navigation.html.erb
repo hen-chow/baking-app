@@ -9,12 +9,6 @@
         </div>
         <%= link_to "Your profile page", user_path(@current_user.id), class: "ui item" %>
       <% end %>
-      <div class="item">
-        <div class="ui icon input">
-          <input type="text" placeholder="Search...">
-          <i class="search link icon"></i>
-        </div>
-      </div>
       <%= link_to "Log in", login_path, class: "ui item" %>
       <%= link_to "Log out", logout_path, method: :delete, class: "ui item" %>
     </div>

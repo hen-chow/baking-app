@@ -1,5 +1,6 @@
 <div class="ui main text container">
-  <%= form_for @directions do |d| %>
+  <h2>Edit the directions</h2>
+  <%= form_for @directions, html: {class: "ui large form"} do |d| %>
     <input type="hidden" name="recipe_id" value="<%= params[:recipe_id] %>" />
     <p>
       <%= d.label :step %>

@@ -43,7 +43,7 @@ class Ingredient < ApplicationRecord
 
     if @@conversion_table[measurement_sys].key?(unit)
       conversion_unit = @@conversion_table[measurement_sys][unit]
-      (qty * conversion_unit.values.pop).to_s + " " + conversion_unit.keys.pop
+      (qty * conversion_unit.values.pop).round(2).to_s + " " + conversion_unit.keys.pop
     else
       qty.to_s + " " + unit
     end
