@@ -27,6 +27,7 @@ h1 {
 
 h2, h3, h4 {
   font-family: 'Gentium Book Basic', serif;
+  text-align: center;
 }
 
 body {
@@ -45,7 +46,7 @@ body {
 }
 
 .ui.footer.segment {
-  margin: 4em 0em 0em;
+  margin: 0 auto;
   padding: 1em 0em;
 }
 
@@ -59,8 +60,15 @@ body {
   margin: 0 auto;
   width: 100%;
   height: 400px;
-  background-image: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url(header_img.jpg);
-  background-size: cover;
+}
+
+.spotlight-image {
+  width: 100%;
+  height: 400px;
+  z-index: -1;
+  position: absolute;
+  object-fit: cover;
+  opacity: 0.75;
 }
 
 .spotlight-text {
@@ -74,4 +82,14 @@ body {
 .column {
   max-width: 450px;
   margin: 3em;
+}
+
+.ui.aligned.grid .column {
+  background: white;
+}
+
+.ui.middle.aligned.center.aligned.grid {
+  background: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url(user_img.jpg);
+  background-size: cover;
+  height: 500px;
 }
