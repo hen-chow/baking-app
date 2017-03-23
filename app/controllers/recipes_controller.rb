@@ -45,6 +45,7 @@ class RecipesController < ApplicationController
     if params[:file].present?
       req = Cloudinary::Uploader.upload(params[:file])
       @recipe.image = req["public_id"]
+      @recipe.save
     end
 
     redirect_to recipe_path(@recipe.id)
