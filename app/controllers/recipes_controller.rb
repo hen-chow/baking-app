@@ -5,10 +5,6 @@ class RecipesController < ApplicationController
     @baking_categories = BakingCategory.all
   end
 
-  def show
-    @recipe = Recipe.find(params[:id])
-  end
-
   def create
     @baking_categories = BakingCategory.all
     @recipe = Recipe.new(clean_params)
@@ -26,13 +22,15 @@ class RecipesController < ApplicationController
   end
 
   def search
-    @results = Recipe.where("name like ?", "%#{params[:find]}%")
-    binding.pry
-    redirect_to search_results_path
+    redirect_to recipes_results_path(search: "#{params[:find]}")
   end
 
   def results
-    puts @results
+    @search_result = Recipe.where("name like ?", "%#{params[:search]}%")
+  end
+
+  def show
+    @recipe = Recipe.find(params[:id])
   end
 
   def edit

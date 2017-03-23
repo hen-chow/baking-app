@@ -1,2 +1,8 @@
 <div class="ui main text container">
+  <h2>Your search results</h2>
+  <ul>
+    <%= @search_result.each do |recipe| %>
+      <li><%= link_to recipe.name, recipe_path(recipe.id) %></li>
+    <% end %>
+  </ul>
 </div>

@@ -6,12 +6,12 @@
 </div>
 <div class="content-container">
   <h2>1,000 amazing baking recipes for you to try!</h2>
-  <%= form_tag("/recipes/search", method: "post") do %>
+  <%= form_tag recipes_search_path, method: "post" do %>
     <p>
-      <%= text_field_tag(:find, "Find a recipe") %>
+      <%= text_field_tag :find %>
     </p>
     <p>
-      <%= submit_tag("Search", class: "ui teal basic button") %>
+      <%= submit_tag "Search", class: "ui teal basic button" %>
     </p>
   <% end %>
 </div>
