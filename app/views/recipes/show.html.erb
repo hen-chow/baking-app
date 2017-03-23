@@ -1,5 +1,5 @@
 <div class="ui main text container">
-  <h2><%= @recipe.name %></h2>
+  <h2><%= @recipe.name.titleize %></h2>
 
   <div><%= cl_image_tag @recipe.image %></div>
 
@@ -12,7 +12,7 @@
   <ul>
     <% @recipe.ingredients.each do |ingredient| %>
       <li><%= ingredient.qty %> <%= ingredient.unit %> <%= ingredient.food_item.name.downcase %></li>
-      <li> <%= ingredient.convert_formatted 'fl oz' %> </li>
+      <li> <%= ingredient.convert_formatted 'Imperial' %> </li>
     <% end %>
   </ul>
   <h3>Directions</h3>

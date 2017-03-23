@@ -25,6 +25,16 @@ class RecipesController < ApplicationController
     end
   end
 
+  def search
+    @results = Recipe.where("name like ?", "%#{params[:find]}%")
+    binding.pry
+    redirect_to search_results_path
+  end
+
+  def results
+    puts @results
+  end
+
   def edit
     @recipe = Recipe.find(params[:id])
   end
