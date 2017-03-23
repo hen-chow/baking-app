@@ -1,22 +1,24 @@
-<%= form_tag new_direction_path, method: "post" do %>
-  <input type="hidden" name="recipe_id" value="<%= params[:recipe_id] %>" />
-  <div id="direction_inputs">
+<div class="ui main text container">
+  <%= form_tag new_direction_path, method: "post" do %>
+    <input type="hidden" name="recipe_id" value="<%= params[:recipe_id] %>" />
+    <div id="direction_inputs">
+      <%= render "/includes/direction_inputs" %>
+    </div>
+    <p>
+      <input type="submit" value="Submit" class="ui teal basic button"/>
+    </p>
+  <% end %>
+  <a href="#" id="add_direction">Add More</a>
+  <div id="hidden_inputs" style="display: none">
     <%= render "/includes/direction_inputs" %>
   </div>
-  <p>
-    <input type="submit" value="Submit" class="ui teal basic button"/>
-  </p>
-<% end %>
-<a href="#" id="add_direction">Add More</a>
-<div id="hidden_inputs" style="display: none">
-  <%= render "/includes/direction_inputs" %>
+  <script>
+    $(document).ready(function(){
+      $("#add_direction").on("click", function(e){
+        e.preventDefault();
+        var inputs = $("#hidden_inputs").html();
+        $("#direction_inputs").append(inputs);
+      })
+    });
+  </script>
 </div>
-<script>
-  $(document).ready(function(){
-    $("#add_direction").on("click", function(e){
-      e.preventDefault();
-      var inputs = $("#hidden_inputs").html();
-      $("#direction_inputs").append(inputs);
-    })
-  });
-</script>

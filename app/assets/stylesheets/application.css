@@ -13,24 +13,63 @@
  *= require_tree .
  *= require_self
  */
-h1, h2, h3, h4 {
+
+ * {
+   box-sizing: border-box;
+   margin:0;
+   padding:0;
+ }
+
+h1 {
+  font-family: 'Gentium Book Basic', serif;
+  font-size: 3em;
+}
+
+h2, h3, h4 {
   font-family: 'Gentium Book Basic', serif;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #fffafa;
+  /*background-color: #fffafa;*/
 }
 
 .ui.inverted.segment {
   border-radius: 0;
+  margin: 0 auto;
 }
 
-.main.container {
-  margin-top: 7em;
-}
+/*.main.container {*/
+  /*margin-top: 3em;*/
+  /*background-color: none;*/
+/*}*/
 
 .ui.footer.segment {
   margin: 4em 0em 0em;
-  padding: 4em 0em;
+  padding: 1em 0em;
+}
+
+.content-container {
+  margin: 0 auto;
+  width: 800px;
+  padding: 10px;
+}
+
+.spotlight-container {
+  margin: 0 auto;
+  width: 100%;
+  height: 400px;
+  background-image: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url(header_img.jpg);
+  background-size: cover;
+}
+
+#spotlight-text {
+  text-align: center;
+  padding: 200px 0 0 0;
+  text-shadow: 1px 1px #FFFFFF;
+}
+
+.column {
+  max-width: 450px;
+  margin: 3em;
 }

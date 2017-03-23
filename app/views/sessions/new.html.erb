@@ -1,14 +1,19 @@
-<h3>This is the log in page</h3>
-<%= form_tag login_path, method: :post do %>
-  <p>
-    <label>Email</label>
-    <input type="text" name="email" />
-  </p>
-  <p>
-    <label>Password</label>
-    <input type="password" name="password" />
-  </p>
-  <p>
-    <input type="submit" value="Log In" class="ui teal basic button" />
-  </p>
-<% end %>
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui teal header">
+      <div class="content">Log into your account
+      </div>
+    </h2>
+    <%= form_tag login_path, method: :post, class:"ui large form" do %>
+      <p>
+        <input type="text" name="email" placeholder="Email address" />
+      </p>
+      <p>
+        <input type="password" name="password" placeholder="Password" />
+      </p>
+      <p>
+        <input type="submit" value="Log In" class="ui fluid large teal submit button" />
+      </p>
+    <% end %>
+  </div>
+</div>

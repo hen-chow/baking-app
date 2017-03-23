@@ -1,22 +1,24 @@
-<%= form_tag new_ingredient_path, method: "post" do %>
-  <input type="hidden" name="recipe_id" value="<%= params[:recipe_id] %>" />
-  <div id="ingredient_inputs">
+<div class="ui main text container">
+  <%= form_tag new_ingredient_path, method: "post" do %>
+    <input type="hidden" name="recipe_id" value="<%= params[:recipe_id] %>" />
+    <div id="ingredient_inputs">
+      <%= render "/includes/ingredient_inputs" %>
+    </div>
+    <p>
+      <input type="submit" value="Next" class="ui teal basic button"/>
+  </p>
+  <% end %>
+  <a href="#" id="add_ingredient">More +</a>
+  <div id="hidden_inputs" style="display: none;">
     <%= render "/includes/ingredient_inputs" %>
   </div>
-  <p>
-    <input type="submit" value="Next" class="ui teal basic button"/>
-</p>
-<% end %>
-<a href="#" id="add_ingredient">More +</a>
-<div id="hidden_inputs" style="display: none;">
-  <%= render "/includes/ingredient_inputs" %>
+  <script>
+    $(document).ready(function(){
+      $("#add_ingredient").on("click", function(e){
+        e.preventDefault();
+        var inputs = $("#hidden_inputs").html();
+        $("#ingredient_inputs").append(inputs);
+      })
+    });
+  </script>
 </div>
-<script>
-  $(document).ready(function(){
-    $("#add_ingredient").on("click", function(e){
-      e.preventDefault();
-      var inputs = $("#hidden_inputs").html();
-      $("#ingredient_inputs").append(inputs);
-    })
-  });
-</script>

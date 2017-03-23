@@ -1,50 +1,52 @@
-<h2><%= @recipe.name %></h2>
+<div class="ui main text container">
+  <h2><%= @recipe.name %></h2>
 
-<div><%= cl_image_tag @recipe.image %></div>
+  <div><%= cl_image_tag @recipe.image %></div>
 
-<ul>
-  <li>Difficulty: <%= @recipe.skill_level %></li>
-  <li>Prep Time: <%= @recipe.prep_time %></li>
-  <li>Cooking Time: <%= @recipe.cooking_time %></li>
-</ul>
-<h3>Ingredients</h3>
-<ul>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= ingredient.qty %> <%= ingredient.food_item.name.downcase %></li>
-  <% end %>
-</ul>
-<h3>Directions</h3>
-<ol>
-  <% @recipe.directions.each do |direction| %>
-    <li><%= direction.instruction %></li>
-  <% end %>
-</ol>
+  <ul>
+    <li>Difficulty: <%= @recipe.skill_level %></li>
+    <li>Prep Time: <%= @recipe.prep_time %></li>
+    <li>Cooking Time: <%= @recipe.cooking_time %></li>
+  </ul>
+  <h3>Ingredients</h3>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient.qty %> <%= ingredient.food_item.name.downcase %></li>
+    <% end %>
+  </ul>
+  <h3>Directions</h3>
+  <ol>
+    <% @recipe.directions.each do |direction| %>
+      <li><%= direction.instruction %></li>
+    <% end %>
+  </ol>
 
-<h3>Comments and Ratings</h3>
-<% if @recipe.reviews.empty? %>
-  <p>No comments yet - be the first to rate this recipe!</p>
-<% else %>
-  <% @recipe.reviews.each do |review| %>
-    <p><%= review.message %></p>
-    <p>Rating: <%= review.rating %></p>
-    <p>By: <%= review.user.name %></p>
+  <h3>Comments and Ratings</h3>
+  <% if @recipe.reviews.empty? %>
+    <p>No comments yet - be the first to rate this recipe!</p>
+  <% else %>
+    <% @recipe.reviews.each do |review| %>
+      <p><%= review.message %></p>
+      <p>Rating: <%= review.rating %></p>
+      <p>By: <%= review.user.name %></p>
+    <% end %>
   <% end %>
-<% end %>
 
-<% if @current_user %>
-  <h4>What's Your Rating?</h4>
-  <%= form_tag reviews_path, method: :post do %>
-    <input type ="hidden" name="review[recipe_id]" value="<%= params[:id] %>" />
-    <input type="hidden" name="review[user_id]" value="<%= @current_user.id %>" />
-    <p>
-      <input type="text" name="review[rating]" placeholder="Rating out of 5" />
-    </p>
-    <p>
-      <label>Your Review</label>
-      <input type="text" name="review[message]" placeholder="Write your review" />
-    </p>
-    <p>
-      <input type="submit" value="Post" class="ui teal basic button" />
-    </p>
+  <% if @current_user %>
+    <h4>What's Your Rating?</h4>
+    <%= form_tag reviews_path, method: :post do %>
+      <input type ="hidden" name="review[recipe_id]" value="<%= params[:id] %>" />
+      <input type="hidden" name="review[user_id]" value="<%= @current_user.id %>" />
+      <p>
+        <input type="text" name="review[rating]" placeholder="Rating out of 5" />
+      </p>
+      <p>
+        <label>Your Review</label>
+        <input type="text" name="review[message]" placeholder="Write your review" />
+      </p>
+      <p>
+        <input type="submit" value="Post" class="ui teal basic button" />
+      </p>
+    <% end %>
   <% end %>
-<% end %>
+</div>
