@@ -2,22 +2,27 @@
   <%= image_tag "header_img.jpg", class: "spotlight-image" %>
   <div class="spotlight-text">
     <h1>The Minimalist Baker</h1>
+    <h2>Simpler baking - with less fuss</h2>
     <%= link_to "See Our Recipes", new_baking_category_path, class: "ui inverted teal basic button" %>
   </div>
 </div>
-<div class="content-container">
-  <h2>1,000 amazing baking recipes for you to try!</h2>
-  <%= form_tag recipes_search_path, method: "post" do %>
-    <p>
-      <%= text_field_tag :find %>
-    </p>
-    <p>
-      <%= submit_tag "Search", class: "ui teal basic button" %>
-    </p>
-  <% end %>
+<div class="ui inverted segment" id="feature-container">
+  <div class="ui main text container">
+    <h2>1,000 amazing baking recipes for you to try!</h2>
+    <div class="column">
+      <%= form_tag recipes_search_path, method: "post", class: "ui large form" do %>
+        <p>
+          <%= text_field_tag :find %>
+        </p>
+        <p>
+          <%= submit_tag "Search", class: "ui teal basic button" %>
+        </p>
+      <% end %>
+    </div>
+  </div>
 </div>
 <div class="ui main text container">
-<h1>Check out these awesome baking categories!</h1>
+<h1>Baking Categories</h1>
 <ul>
   <% @baking_categories.each do |b| %>
     <li><%= link_to b.name, baking_category_path(b.id) %>
