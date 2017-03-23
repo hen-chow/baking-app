@@ -11,6 +11,9 @@ User.destroy_all
 FoodItem.destroy_all
 BakingCategory.destroy_all
 Recipe.destroy_all
+Ingredient.destroy_all
+Direction.destroy_all
+Review.destroy_all
 
 # kjsdhfkjzdhjfsdfsd.add
 
@@ -76,18 +79,21 @@ baking_categories = [
         skill_level: 3,
         cooking_time: 40,
         user_id: created_users[0].id
+        # image: "strawberry-sponge-cake.jpg"
       },
       {
         name: "Chocolate Mud Cake",
         skill_level: 3.5,
         cooking_time: 110,
         user_id: created_users[1].id
+        # image: "chocolate-mud-cake.jpg"
       },
       {
         name: "Black Forest Cake",
         skill_level: 4,
         cooking_time: 120,
         user_id: created_users[2].id
+        # image: "black-forest-cake.jpg"
       }
     ]
   },
@@ -97,13 +103,15 @@ baking_categories = [
         name: "Chocolate Chip Cookies",
         skill_level: 2,
         cooking_time: 35,
-        user_id: created_users[1].id
+        user_id: created_users[1].id,
+        # image: "chocolate-chip-cookies.jpg
       },
       {
         name: "Anzac Biscuits",
         skill_level: 2,
         cooking_time: 45,
-        user_id: created_users[2].id
+        user_id: created_users[2].id,
+        # image: "anzac-biscuits.jpg
       }
     ]
   },
@@ -116,7 +124,7 @@ baking_categories.each do |baking_category|
 
   baking_category[:recipes].each do |recipe|
     new_recipe = Recipe.create(name: recipe[:name],
-    skill_level: recipe[:skill_level], cooking_time: recipe[:cooking_time], user_id: recipe[:user_id], baking_category_id: new_baking_category.id)
+    skill_level: recipe[:skill_level], cooking_time: recipe[:cooking_time], user_id: recipe[:user_id], image: recipe[:image], baking_category_id: new_baking_category.id)
     puts new_recipe.errors.messages
 
   end

@@ -1,0 +1,13 @@
+<div class="ui main text container">
+  <%= form_for @directions do |d| %>
+    <input type="hidden" name="recipe_id" value="<%= params[:recipe_id] %>" />
+    <p>
+      <%= d.label :step %>
+      <%= d.text_field :step %>
+    </p>
+    <p>
+      <%= d.label :instruction %>
+      <%= d.text_field :instruction %>
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,17 @@
+<div class="ui main text container">
+  <%= form_for @ingredients do |i| %>
+    <p>
+      <%= i.label :qty %>
+      <%= i.text_field :qty %>
+    </p>
+    <select name="ingredients[][unit]", class="ui selection dropdown">
+      <% @units.each do |u| %>
+        <option value="<%= u %>"><%= u %></option>
+      <% end %>
+    </select>
+    <p>
+      <%= i.label :item %>
+      <%= i.text_field :food_item[name] %>
+    </p>
+  <% end %>
+</div>

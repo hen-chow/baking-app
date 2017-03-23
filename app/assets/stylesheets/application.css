@@ -53,11 +53,11 @@ body {
   padding: 1em 0em;
 }
 
-.content-container {
+/*.content-container {
   margin: 0 auto;
   width: 800px;
   padding: 10px;
-}
+}*/
 
 .spotlight-container {
   margin: 0 auto;
@@ -78,7 +78,8 @@ body {
   margin: 0 auto;
   text-align: center;
   padding: 200px 0 0 0;
-  text-shadow: 1px 1px #FFFFFF;
+  color: white;
+  text-shadow: 1px 1px #000000;
   max-width: 700px;
 }
 
@@ -92,9 +93,13 @@ body {
 }
 
 .ui.middle.aligned.center.aligned.grid {
-  background: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url(user_img.jpg);
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url(user_img.jpg);
   background-size: cover;
   height: 500px;
+}
+
+#search-button {
+  line-height: 1.42em;
 }
 
 #feature-container {
@@ -104,4 +109,14 @@ body {
   height: 250px;
   text-align: center;
   color: black;
+}
+
+#search-field {
+  width: 400px;
+  margin-right: 5px;
+}
+
+.content li {
+  display: inline-block;
+  padding: 10px 60px;
 }

@@ -8,8 +8,6 @@ class DirectionsController < ApplicationController
   def create
     params[:directions].each do |d|
       if !d[:step].empty? && !d[:instruction].empty?
-        puts "*******************"
-        puts "Step #{d[:step]} \t#{d[:instruction]}"
         @directions = Direction.create(step: d[:step], instruction: d[:instruction], recipe_id: params[:recipe_id])
       end
     end
@@ -18,6 +16,13 @@ class DirectionsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @directions = Direction.find_by(recipe_id: params[:id])
+  end
+
+  def update
   end
 
   private

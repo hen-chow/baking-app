@@ -6,35 +6,41 @@
     <%= link_to "See Our Recipes", new_baking_category_path, class: "ui inverted teal basic button" %>
   </div>
 </div>
+<div class="ui text container">
+  <%= render "includes/flash_notices" %>
+</div>
 <div class="ui inverted segment" id="feature-container">
-  <div class="ui main text container">
+  <div class="ui text container">
     <h2>1,000 amazing baking recipes for you to try!</h2>
-    <div class="column">
       <%= form_tag recipes_search_path, method: "post", class: "ui large form" do %>
         <p>
-          <%= text_field_tag :find %>
+          <%= text_field_tag :find, nil, placeholder: "Enter search term...", id: "search-field" %>
+          <%= submit_tag "Search", class: "ui teal basic button", id: "search-button" %>
         </p>
-        <p>
-          <%= submit_tag "Search", class: "ui teal basic button" %>
-        </p>
+        <div class="content">
+          <ul>
+            <li><%= link_to @baking_categories.first.name, baking_category_path(@baking_categories.first.id) %></li>
+            <li><%= link_to @baking_categories.last.name, baking_category_path(@baking_categories.last.id) %></li>
+            <li><%= link_to @baking_categories.first.name, baking_category_path(@baking_categories.first.id) %></li>
+          </ul>
+        </div>
       <% end %>
-    </div>
   </div>
 </div>
-<div class="ui main text container">
+<div class="ui main text container" >
 <h1>Baking Categories</h1>
 <ul>
   <% @baking_categories.each do |b| %>
     <li><%= link_to b.name, baking_category_path(b.id) %>
       <% if @current_user && @current_user.admin %>
-        <%= link_to "Edit", edit_baking_category_path(b.id) %> |
+        <%= link_to "Edit", edit_baking_category_path(b.id), class: "ui teal basic button" %> |
         <%= link_to "Delete", baking_category_path(b.id), method: :delete, data: {confirm: "Are you sure you want to delete the #{b.name} category?"} %>
       <% end %>
     </li>
   <% end %>
 </ul>
 </div>
-<div class="ui main text container">
+<div class="ui text container">
   <% if @current_user && @current_user.admin %>
     <%= link_to "Add a New Baking Category", new_baking_category_path, class: "ui teal basic button" %>
   <% end %>

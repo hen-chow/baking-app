@@ -27,6 +27,15 @@ class IngredientsController < ApplicationController
     end
   end
 
+  def edit
+    # @ingredients = Ingredient.find_by(recipe_id: params[:id])
+    # @units = UNITS_CONST.sort
+    # food_item = FoodItem.find(id: i.food_item_id).name
+  end
+
+  def update
+  end
+
   private
 
   def clean_params
