@@ -19,15 +19,15 @@
       </p>
       <p>
         <%= el.label :skill_level %>
-        <%= el.text_field :skill_level %>
+        <%= el.text_field :skill_level, placeholder: "Rate from 1 to 5" %>
       </p>
       <p>
         <%= el.label :prep_time %>
-        <%= el.text_field :prep_time %>
+        <%= el.text_field :prep_time, placeholder: "Enter in minutes"%>
       </p>
       <p>
         <%= el.label :cooking_time %>
-        <%= el.text_field :cooking_time %>
+        <%= el.text_field :cooking_time, placeholder: "Enter in minutes" %>
       </p>
       <%= el.submit "Next", class: "ui teal basic button"%>
   <% end %>

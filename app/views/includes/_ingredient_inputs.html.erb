@@ -2,6 +2,11 @@
   <p>
     <label>Qty</label>
     <input type="text" name="ingredients[][qty]"/>
+    <select name="ingredients[][unit]", class="ui selection dropdown">
+      <% @units.each do |u| %>
+        <option value="<%= u %>"><%= u %></option>
+      <% end %>
+    </select>
   </p>
   <p>
     <label>Item</label>

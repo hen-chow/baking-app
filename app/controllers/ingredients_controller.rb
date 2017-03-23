@@ -1,8 +1,15 @@
 class IngredientsController < ApplicationController
   before_action :authenticate_user, only: [:create]
 
+  UNITS_CONST = ["ml", "L", "g", "kg", "cup", "tsp", "Tbsp", "oz", "fl oz", "lb", ""]  # array of ingredient units
+
+  def self.unit_select
+    @units = UNITS_CONST.sort
+  end
+
   def new
     @ingredient = Ingredient.new
+    @units = UNITS_CONST.sort
   end
 
   def create
@@ -10,7 +17,7 @@ class IngredientsController < ApplicationController
       if !i[:qty].empty? && !i[:name].empty?
         food_item = FoodItem.find_or_create_by(name: i[:name])
         @recipe = Recipe.find(params[:recipe_id])
-        @ingredients = Ingredient.create(qty: i[:qty], food_item_id: food_item.id, recipe_id: @recipe.id)
+        @ingredients = Ingredient.create(qty: i[:qty], unit: i[:unit], food_item_id: food_item.id, recipe_id: @recipe.id)
       end
     end
     if @ingredients.save
@@ -23,6 +30,6 @@ class IngredientsController < ApplicationController
   private
 
   def clean_params
-    params.require(:ingredients).permit(:qty, :food_item_id, :recipe_id)
+    params.require(:ingredients).permit(:qty, :food_item_id, :recipe_id, :unit)
   end
 end
