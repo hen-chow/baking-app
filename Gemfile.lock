@@ -92,6 +92,8 @@ GEM
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     pg (0.20.0)
+    non-stupid-digest-assets (1.0.9)
+      sprockets (>= 2.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -176,6 +178,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  non-stupid-digest-assets
   pg (~> 0.18)
   pry
   puma (~> 3.0)
