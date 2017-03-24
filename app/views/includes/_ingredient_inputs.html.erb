@@ -1,8 +1,8 @@
 <p>
   <p>
     <label>Qty</label>
-    <input type="text" name="ingredients[][qty]"/>
-    <select name="ingredients[][unit]", class="ui selection dropdown">
+    <input type="text" name="ingredients[][qty]" />
+    <select name="ingredients[][unit]", class="ui selection dropdown" >
       <% @units.each do |u| %>
         <option value="<%= u %>"><%= u %></option>
       <% end %>
@@ -10,6 +10,6 @@
   </p>
   <p>
     <label>Item</label>
-    <input type="text" name="ingredients[][name]"/>
+    <input type="text" name="ingredients[][name]" />
   </p>
 </p>

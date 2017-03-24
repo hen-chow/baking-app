@@ -1,11 +1,10 @@
 # README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# TITLE: The Minimalist Baker - Baking App
 
 Things you may want to cover:
 
 * Ruby version
+- ruby 2.4.0p0 (2016-12-24 revision 57164)
 
 * System dependencies
 
@@ -21,4 +20,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Project URL: [link for The Minimalist Baker](https://shrouded-scrubland-35912.herokuapp.com)

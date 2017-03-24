@@ -14,7 +14,10 @@
 //= require jquery_ujs
 //= require_tree .
 $(document).ready(function(){
-  $('.ui.dropdown')
+  // $('.ui.selection.dropdown')
+  // .dropdown();
+
+  $('.dropdown-toggle')
   .dropdown();
 
   $('.message .close')
