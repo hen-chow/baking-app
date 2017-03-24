@@ -42,7 +42,7 @@ class BakingCategoriesController < ApplicationController
   private
 
   def clean_params
-    params.require(:baking_category).permit(:name)
+    params.require(:baking_category).permit(:name, :image)
   end
 
 end

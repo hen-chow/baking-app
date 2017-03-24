@@ -74,6 +74,7 @@ end
 baking_categories = [
   {
     name: "Cakes",
+    image: "cakes-category.jpg",
     recipes: [{
         name: "Strawberry Sponge Cake",
         skill_level: 3,
@@ -99,6 +100,7 @@ baking_categories = [
   },
   {
     name: "Biscuits",
+    image: "biscuits_category.jpg",
     recipes: [{
         name: "Chocolate Chip Cookies",
         skill_level: 2,

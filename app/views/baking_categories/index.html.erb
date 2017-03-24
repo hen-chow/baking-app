@@ -20,34 +20,39 @@
         <div class="content">
           <ul>
             <li><%= link_to @baking_categories.first.name, baking_category_path(@baking_categories.first.id) %></li>
+            <li><%= link_to @baking_categories.second.name, baking_category_path(@baking_categories.second.id) %></li>
             <li><%= link_to @baking_categories.last.name, baking_category_path(@baking_categories.last.id) %></li>
-            <li><%= link_to @baking_categories.first.name, baking_category_path(@baking_categories.first.id) %></li>
           </ul>
         </div>
       <% end %>
   </div>
 </div>
-<div class="ui main text container" >
-<h1>Baking Categories</h1>
-<ul>
-  <% @baking_categories.each do |b| %>
-    <li><%= link_to b.name, baking_category_path(b.id) %>
-      <% if @current_user && @current_user.admin %>
-        <%= link_to "Edit", edit_baking_category_path(b.id), class: "ui teal basic button" %> |
-        <%= link_to "Delete", baking_category_path(b.id), method: :delete, data: {confirm: "Are you sure you want to delete the #{b.name} category?"} %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
-</div>
 <div class="ui text container">
-  <% if @current_user && @current_user.admin %>
-    <%= link_to "Add a New Baking Category", new_baking_category_path, class: "ui teal basic button" %>
+  <a name="baking-categories"><h1>Baking Categories</h1></a>
+</div>
+<div class="ui grid">
+  <% @baking_categories.each do |b| %>
+    <div class="four wide column">
+      <h3><%= b.name %></h3>
+      <%= link_to image_tag(b.image, class: "category-img"), baking_category_path(b.id) %>
+        <% if @current_user && @current_user.admin %>
+          <%= link_to "Edit", edit_baking_category_path(b.id), class: "ui teal basic button" %> <%= link_to "Delete", baking_category_path(b.id), class: "ui teal basic button", method: :delete, data: {confirm: "Are you sure you want to delete the #{b.name} category?"} %>
+        <% end %>
+    </div>
   <% end %>
-  <% if @current_user %>
-    <%= link_to "Add a New Recipe", new_recipe_path, class: "ui teal basic button" %>
-  <% end %>
-  <% if !@current_user %>
-    <%= link_to "Sign Up Now", new_user_path, class: "ui teal basic button" %>
-  <% end %>
+</div>
+<div class="ui inverted segment" id="feature-container">
+  <div class="ui text container">
+    <% if @current_user && @current_user.admin %>
+      <h2>Welcome back, <%= @current_user.name %>!</h2>
+        <%= link_to "Add a New Baking Category", new_baking_category_path, class: "ui teal basic button" %>
+    <% end %>
+    <% if @current_user %>
+      <%= link_to "Add a New Recipe", new_recipe_path, class: "ui teal basic button" %>
+    <% end %>
+    <% if !@current_user %>
+      <h2>Join The Minimalist Baker Today!</h2>
+      <%= link_to "Sign Up Now", new_user_path, class: "ui teal basic button" %>
+    <% end %>
+  </div>
 </div>
