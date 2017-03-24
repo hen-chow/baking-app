@@ -2,7 +2,7 @@
   <%= cl_image_tag @recipe.image, class: "spotlight-image" %>
   <div class="spotlight-text">
     <h1><%= @recipe.name.titleize %></h1>
-      <h3>By <%= @recipe.user.name %> | Rated <%= @recipe.avg_rating @recipe.id %> (<%= @recipe.reviews.count %> reviews)</h3>
+      <h3>By <%= @recipe.user.name %> | Rating <%= @recipe.avg_rating @recipe.id %> (<%= @recipe.reviews.count %> reviews)</h3>
   </div>
 </div>
 
@@ -56,17 +56,18 @@
       <p>No comments yet - be the first to rate this recipe!</p>
     <% else %>
       <% @recipe.reviews.each do |review| %>
-        <p><%= review.message %></p>
-        <p>Rating: <%= review.rating %></p>
-        <p>By: <%= review.user.name %></p>
+        <div class="content" id="review">
+          <p><%= review.message %></p>
+          <p>Rating: <%= review.rating %> | By: <%= review.user.name %></p>
+        </div>
       <% end %>
     <% end %>
   </div>
 </div>
-<div class="ui main text container">
-  <% if @current_user %>
+<% if @current_user %>
+  <div class="ui main text container">
     <% if @current_user.id != @recipe.user_id %>
-      <h4>What's Your Rating?</h4>
+      <p>What's Your Rating?</p>
       <%= form_tag reviews_path, method: :post, class: "ui large form" do %>
         <input type ="hidden" name="review[recipe_id]" value="<%= params[:id] %>" />
         <input type="hidden" name="review[user_id]" value="<%= @current_user.id %>" />
@@ -82,8 +83,8 @@
         </p>
       <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
 <script>
   $(document).ready(function(){
     $("#imperial_conversion").on("click", function(){

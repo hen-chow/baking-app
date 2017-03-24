@@ -9,9 +9,11 @@
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
   </head>
-
   <body>
     <%= render "includes/navigation" %>
+    <div class="ui text container" id="flash-notices">
+      <%= render "includes/flash_notices" %>
+    </div>
       <%= yield %>
     <%= render "includes/footer" %>
   </body>

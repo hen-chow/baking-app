@@ -3,11 +3,8 @@
   <div class="spotlight-text">
     <h1>The Minimalist Baker</h1>
     <h2>Simpler baking - with less fuss</h2>
-    <%= link_to "See Our Recipes", new_baking_category_path, class: "ui inverted teal basic button" %>
+    <%= link_to "See Our Recipes", "/#baking-categories", class: "ui inverted teal basic button" %>
   </div>
-</div>
-<div class="ui text container">
-  <%= render "includes/flash_notices" %>
 </div>
 <div class="ui inverted segment" id="feature-container">
   <div class="ui text container">
@@ -48,6 +45,7 @@
         <%= link_to "Add a New Baking Category", new_baking_category_path, class: "ui teal basic button" %>
     <% end %>
     <% if @current_user %>
+      <h2>Share your delicious recipe today</h2>
       <%= link_to "Add a New Recipe", new_recipe_path, class: "ui teal basic button" %>
     <% end %>
     <% if !@current_user %>

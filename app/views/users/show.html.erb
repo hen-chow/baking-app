@@ -1,29 +1,35 @@
 <div class="ui main text container">
   <div class="ui text container">
-    <h3>Welcome to <%= @user.name %>'s page</h3>
-    <p><%= link_to "Add a Recipe", new_recipe_path, class: "ui teal basic button" %></p>
+    <h2>Welcome to <%= @user.name %>'s page</h2>
   </div>
   <div class="ui text container">
-    <h4>Recipes added by you</h4>
+    <h3>Recipes added by you</h3>
+    <p><%= link_to "Add a Recipe", new_recipe_path, class: "ui teal basic button" %></p>
     <ul>
       <% @user.recipes.each do |recipe| %>
         <li><%= link_to recipe.name, recipe_path(recipe.id) %></li>
       <% end %>
     </ul>
   </div>
+</div>
 
-  <% if @user.reviews.length != 0 %>
-    <h4>Reviews added by you</h4>
-    <ul>
-      <% @user.reviews.each do |review| %>
-        <li><%= link_to review.message, recipe_path(review.recipe_id) %></li>
-        <li>Rating: <%= review.rating %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<% if @user.reviews.length != 0 %>
+  <div class="ui inverted segment" id="review-container">
+    <div class="ui text container">
+      <h3>Reviews added by you</h3>
+      <ul>
+        <% @user.reviews.each do |review| %>
+        <p><%= link_to review.message, recipe_path(review.recipe_id) %>
+          Rating: <%= review.rating %></p>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
 
-  <% @user.recipes.each do |recipe| %>
-    <% if !recipe.reviews.empty? %>
+<% @user.recipes.each do |recipe| %>
+  <% if !recipe.reviews.empty? %>
+    <div class="ui text container">
       <h4>Comments to your recipes</h4>
       <p><%= link_to recipe.name, recipe_path(recipe.id) %></p>
         <% recipe.reviews.each do |review| %>
@@ -31,6 +37,6 @@
           <p>Rating: <%= review.rating %></p>
           <p>By: <%= review.user.name %></p>
         <% end %>
-    <% end %>
+    </div>
   <% end %>
-</div>
+<% end %>

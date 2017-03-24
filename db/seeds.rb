@@ -119,6 +119,11 @@ baking_categories = [
   },
 ]
 
+BakingCategory.create(name: "Brownies", image: "brownies-category.jpg")
+BakingCategory.create(name: "Muffins", image: "muffins-category.png")
+BakingCategory.create(name: "Cupcakes", image: "cupcakes-category.jpg")
+BakingCategory.create(name: "Pies and Tarts", image: "pies-category.jpg")
+
 baking_categories.each do |baking_category|
   new_baking_category = BakingCategory.create(name: baking_category[:name], image: baking_category[:image])
   puts new_baking_category.errors.messages
