@@ -120,7 +120,7 @@ baking_categories = [
 ]
 
 baking_categories.each do |baking_category|
-  new_baking_category = BakingCategory.create(name: baking_category[:name])
+  new_baking_category = BakingCategory.create(name: baking_category[:name], image: baking_category[:image])
   puts new_baking_category.errors.messages
 
 
