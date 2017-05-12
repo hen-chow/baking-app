@@ -55,7 +55,7 @@ baking_category_2 = BakingCategory.create(name: "Muffins", image: "muffins-categ
 baking_category_3 = BakingCategory.create(name: "Cupcakes", image: "cupcakes-category.jpg")
 baking_category_4 = BakingCategory.create(name: "Pies and Tarts", image: "pies-category.jpg")
 baking_category_5 = BakingCategory.create(name: "Cakes", image: "cakes-category.jpg")
-baking_category_6 = BakingCategory.create(name: "Biscuits", image: "biscuits-category.jpg")
+baking_category_6 = BakingCategory.create(name: "Biscuits", image: "biscuits_category.jpg")
 
 puts "Baking categories created"
 
