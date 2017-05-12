@@ -7,8 +7,8 @@ class DirectionsController < ApplicationController
 
   def create
     params[:directions].each do |d|
-      if !d[:step].empty? && !d[:instruction].empty?
-        @directions = Direction.create(step: d[:step], instruction: d[:instruction], recipe_id: params[:recipe_id])
+      if d[:step].present? && d[:instruction].present? # check that both step and instruction fields are not empty so we don't upload empty records
+        @directions = Direction.create(step: d[:step], instruction: d[:instruction], recipe_id: params[:recipe_id]) # matching update of data with array within array
       end
     end
     if @directions.save

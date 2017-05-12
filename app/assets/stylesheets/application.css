@@ -49,6 +49,10 @@ body {
   height: auto;
 }
 
+.ui.main.text.container {
+  height: 60%;
+}
+
 .main.container {
   margin-top: 1.5em;
   margin-bottom: 1em;
@@ -58,6 +62,8 @@ body {
 .ui.footer.segment {
   margin: 0 auto;
   padding: 1em 0em;
+  width: 100%;
+  bottom: 0px;
 }
 
 /*.content-container {

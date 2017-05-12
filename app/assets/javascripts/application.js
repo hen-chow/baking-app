@@ -17,10 +17,10 @@ $(document).ready(function(){
   // $('.ui.selection.dropdown')
   // .dropdown();
 
-  $('.dropdown-toggle')
+  $('.dropdown-toggle') // update of dropdown toggle function so it works after new fields are added
   .dropdown();
 
-  $('.message .close')
+  $('.message .close') // semantic's js script for flash messages close function
     .on('click', function() {
       $(this)
         .closest('.message')

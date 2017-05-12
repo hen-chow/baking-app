@@ -14,9 +14,9 @@ class IngredientsController < ApplicationController
 
   def create
     params[:ingredients].each do |i|
-      if !i[:qty].empty? && !i[:name].empty?
+      if i[:qty].present? && i[:name].present? # check that both fields are not empty
         food_item = FoodItem.find_or_create_by(name: i[:name])
-        @recipe = Recipe.find(params[:recipe_id])
+        @recipe = Recipe.find(params[:recipe_id]) # need both food item and recipe references create new ingredients
         @ingredients = Ingredient.create(qty: i[:qty], unit: i[:unit], food_item_id: food_item.id, recipe_id: @recipe.id)
       end
     end

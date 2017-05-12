@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user, only: [:create, :edit, :update, :destroy]
+
   def new
     @recipe = Recipe.new
     @baking_categories = BakingCategory.all
@@ -9,6 +10,7 @@ class RecipesController < ApplicationController
     @baking_categories = BakingCategory.all
     @recipe = Recipe.new(clean_params)
 
+    # to upload image to Cloudinary
     if params[:file].present?
       req = Cloudinary::Uploader.upload(params[:file])
       @recipe.image = req["public_id"]
@@ -25,6 +27,7 @@ class RecipesController < ApplicationController
     redirect_to recipes_results_path(search: "#{params[:find]}")
   end
 
+  # create search function with the new of "where" and "like"
   def results
     @search_result = Recipe.where("name like ?", "%#{params[:search]}%")
   end
@@ -36,12 +39,20 @@ class RecipesController < ApplicationController
   def edit
     @baking_categories = BakingCategory.all
     @recipe = Recipe.find(params[:id])
+
+# this line redirects the user away from the page unless the recipe belongs to them:
+    redirect_to root_path unless @recipe.user_id = @current_user.id
   end
 
   def update
     @recipe = Recipe.find(params[:id])
+
+# this line redirects the user away from the page unless the recipe belongs to them:
+    redirect_to root_path unless @recipe.user_id = @current_user.id
+
     @recipe.update_attributes(clean_params)
 
+# to update image in Cloudinary
     if params[:file].present?
       req = Cloudinary::Uploader.upload(params[:file])
       @recipe.image = req["public_id"]

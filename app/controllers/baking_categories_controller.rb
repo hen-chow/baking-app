@@ -2,7 +2,7 @@ class BakingCategoriesController < ApplicationController
   before_action :authenticate_user, only: [:create, :edit, :update, :destroy]
 
   def index
-    @baking_categories = BakingCategory.all.order(:name)
+    @baking_categories = BakingCategory.all.order(:name) # Baking categories sort alphabetically using "order by name"
   end
 
   def new

@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   def create
     @user = User.create(clean_params)
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to user_path(@user.id)
+      session[:user_id] = @user.id # auto login for new sign up
+      redirect_to user_path(@user.id) # redirect to their new profile page
     else
       render :new
     end

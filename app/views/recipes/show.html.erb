@@ -30,7 +30,9 @@
     <% end %>
 
     <a href="#" id="imperial_conversion">Convert to Imperial</a> |
+    <!-- create a hidden conversion div with conversions completed already -->
     <div id="hidden_imperial_conversion" style="display: none;">
+      <!-- loop thru the ingredients data, and call the 'convert_formatted' method in the ingredients model to convert the ingredients then print out each item -->
       <% @recipe.ingredients.each do |ingredient| %>
         <li> <%= ingredient.convert_formatted 'Imperial' %> <%= ingredient.food_item.name.downcase %></li>
       <% end %>
@@ -85,6 +87,7 @@
     <% end %>
   </div>
 <% end %>
+<!-- JS for clicking of conversion links to show the hidden divs -->
 <script>
   $(document).ready(function(){
     $("#imperial_conversion").on("click", function(){
