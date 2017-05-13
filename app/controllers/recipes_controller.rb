@@ -29,7 +29,10 @@ class RecipesController < ApplicationController
 
   # create search function with the new of "where" and "like"
   def results
-    @search_result = Recipe.where("name like ?", "%#{params[:search]}%")
+    # @search_result = Recipe.where("name like ?", "%#{params[:search]}%")
+
+    @search_result = Recipe.joins(:food_items).joins(:directions).where("food_items.name ILIKE ? OR recipes.name ILIKE ? OR directions.instruction ILIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%").distinct
+    
   end
 
   def show
@@ -37,18 +40,24 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    # redirect_to root_path unless @recipe.user_id = @current_user.id
     @baking_categories = BakingCategory.all
     @recipe = Recipe.find(params[:id])
 
-# this line redirects the user away from the page unless the recipe belongs to them:
-    redirect_to root_path unless @recipe.user_id = @current_user.id
+    if @recipe.user_id != @current_user.id
+      # this line redirects the user away from the page unless the recipe belongs to them:
+      redirect_to root_path
+    end
+
   end
 
   def update
     @recipe = Recipe.find(params[:id])
 
-# this line redirects the user away from the page unless the recipe belongs to them:
-    redirect_to root_path unless @recipe.user_id = @current_user.id
+    if @recipe.user_id != @current_user.id
+      # this line redirects the user away from the page unless the recipe belongs to them:
+      redirect_to root_path
+    end
 
     @recipe.update_attributes(clean_params)
 
